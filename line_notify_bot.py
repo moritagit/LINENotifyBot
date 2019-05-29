@@ -5,6 +5,8 @@
 
 Send messages, images, or stickers to a LINE group via LINE Notify.
 This bot can't accept messages, i.e., is not interactive.
+
+* LINE Notify URL: https://notify-bot.line.me/ja/
 """
 
 
@@ -22,7 +24,7 @@ def main():
         )
     parser.add_argument(
         '-a', '--accesstoken',
-        help='path to a file in which access token is written',
+        help='path to a file in which an access token is written',
         action='store',
         required=True,
         )

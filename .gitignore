@@ -4,6 +4,7 @@
 __pycache__
 .ipynb_checkpoints/
 
+references.md
 access_token.txt
 sticker_list.pdf
 test.png
