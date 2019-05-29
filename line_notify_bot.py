@@ -6,7 +6,8 @@
 Send messages, images, or stickers to a LINE group via LINE Notify.
 This bot can't accept messages, i.e., is not interactive.
 
-* LINE Notify URL: https://notify-bot.line.me/ja/
+* [LINE Notify URL](https://notify-bot.line.me/ja/)
+* [Sticker ID List](https://devdocs.line.me/files/sticker_list.pdf)
 """
 
 
