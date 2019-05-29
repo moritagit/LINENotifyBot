@@ -1,9 +1,12 @@
+# PythonでLINEにメッセージを送る
+
 <!---
     title: PythonでLINEにメッセージを送る
     tags: Python LineNotify Line bot
     author: moriita
     slide: false
 -->
+
 
 
 ## はじめに
@@ -20,8 +23,8 @@ LINEのグループや自分自身にメッセージ・画像・スタンプを�
 
 ※こちらからのメッセージには反応できない
 
+![ImprementExample](https://github.com/moritagit/LINENotifyBot/blob/doc/figures/imprement_example.png "ImprementExample")
 
-![ImprementExample]( "ImprementExample")
 
 
 ## LINE Notifyについて
@@ -46,10 +49,58 @@ LINEのグループや自分自身にメッセージ・画像・スタンプを�
 
 ## 準備
 
-アクセストークン
+### LINE Notifyと友達になる
+
+まずはLINE Notifyを友達に追加します。
+自分に送るだけならこれで大丈夫です。
+グループに送りたいときは，そのグループにLINE Notifyを招待しておきます。
+このLINE Notifyからメッセージが送られてきます。
+
+
+### アクセストークンの発行
+
+次に，アクセストークンを発行します。
+
+1. [LINE Notify公式](https://notify-bot.line.me/ja/)にアクセス
+1. 右上からログイン
+1. ログインと同じところをクリックし，マイページへ
+1. ページ下部の「アクセストークンを発行」をクリック
+1. 解除したいときは「解除」をクリック
 
 
 
+## 実装
+
+
+
+```python:line_notify_bot.py
+import requests
+
+
+class LINENotifyBot:
+    API_URL = 'https://notify-api.line.me/api/notify'
+    def __init__(self, access_token):
+        self.__headers = {'Authorization': 'Bearer ' + access_token}
+
+    def send(
+            self, message,
+            image=None, sticker_package_id=None, sticker_id=None,
+            ):
+        payload = {
+                    'message': message,
+                    'stickerPackageId': sticker_package_id,
+                    'stickerId': sticker_id,
+                    }
+        files = {}
+        if image != None:
+            files = {'imageFile': open(image, 'rb')}
+        r = requests.post(
+            LINENotifyBot.API_URL,
+            headers=self.__headers,
+            data=payload,
+            files=files,
+            )
+```
 
 
 
