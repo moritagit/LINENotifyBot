@@ -4,6 +4,8 @@
 A bot that can send messages, images, or stickers to a LINE group via LINE Notify.
 This bot can't accept messages, i.e., is not interactive.
 
+<img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/imprement_example.png" width=50%>
+
 
 ## Requirements
 
@@ -14,6 +16,7 @@ This bot can't accept messages, i.e., is not interactive.
 ## Usage
 
 This module can be used via console like:
+
 ```console
 python line_notify_bot.py\
     -a path/to/access_token\
@@ -22,10 +25,12 @@ python line_notify_bot.py\
     -sp <sticker package ID>\
     -s <sticker ID>
 ```
+
 Access token and message are necessary, and the others are optional.
 But if you want to send a sticker, both sticker package ID and sticker ID are needed.
 
 Or this can be used in your cord like:
+
 ```python
 from line_notify_bot import LINENotifyBot
 
@@ -44,6 +49,7 @@ bot.send(
 ## Install
 
 To install, simply clone from GitHub.
+
 ```console
 git clone https://github.com/moritagit/LINENotifyBot.git
 ```
@@ -51,6 +57,7 @@ git clone https://github.com/moritagit/LINENotifyBot.git
 
 
 ## Licence
+
 This software is released under the MIT License, see LICENSE.
 
 
@@ -58,3 +65,4 @@ This software is released under the MIT License, see LICENSE.
 ## References
 
 * [LINE Notify](https://notify-bot.line.me/ja/)
+* [Sticker ID List](https://devdocs.line.me/files/sticker_list.pdf)

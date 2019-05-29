@@ -83,7 +83,7 @@ def main():
 
 
 class LINENotifyBot:
-    """Sends message to LINE group if given its access token.
+    """Sends message, image, and sticker to a LINE group.
 
     Args:
         access_token (str):
@@ -98,16 +98,16 @@ class LINENotifyBot:
         self.__headers = {'Authorization': 'Bearer ' + access_token}
 
     def send(self, message, image=None, sticker_package_id=None, sticker_id=None):
-        """Send message to LINE group designated by access token.
+        """Sends message, image, and sticker to a LINE group designated by access token.
 
         Args:
             message (str): Sent message. Maximum length is 1000.
-                If set to None, message can't be sent.
+                If is None, message can't be sent.
                 In this situation, image and sticker also can't be sent.
-            images (list): List of paths to figure you want to send.
-                Available extentions are png or jpeg only.
-                There is a limitation to the number of image files
-                which can be sent in one hour (1,000 images default).
+            image (str or pathlib.Path): Path to image to send.
+                Available extentions are only png or jpeg.
+                There is a limitation to the number of images
+                which can be sent in one hour (1,000 images by default).
                 Defaults to None.
             sticker_package_id (int): ID of sticker package.
                 If set to None, only message is sent.
@@ -121,14 +121,14 @@ class LINENotifyBot:
                 Defaults to None.
         """
         payload = {
-                    'message': message,
-                    'stickerPackageId': sticker_package_id,
-                    'stickerId': sticker_id,
-                    }
+            'message': message,
+            'stickerPackageId': sticker_package_id,
+            'stickerId': sticker_id,
+            }
         files = {}
         if image != None:
-            files = {'imageFile': open(image, 'rb')}
-        line_notify = requests.post(
+            files = {'imageFile': open(str(image), 'rb')}
+        r = requests.post(
             LINENotifyBot.API_URL,
             headers=self.__headers,
             data=payload,
