@@ -8,12 +8,6 @@ This bot can't accept messages, i.e., is not interactive.
 """
 
 
-__author__ = 'morita'
-__version__ = '1.0.0'
-__date__ = '2019-05-03'
-__update__ = '2019-05-03'
-
-
 import requests
 
 
