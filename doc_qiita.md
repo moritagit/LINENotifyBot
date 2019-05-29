@@ -98,6 +98,7 @@ headers = {'Authorization': 'Bearer ' + access_token}
 ### メッセージを送る
 
 3行でメッセージを送ることができます。
+なお，空文字は送れません。
 
 ```python
 message = 'Write Your Message'
@@ -109,7 +110,8 @@ r = requests.post(url, headers=headers, params=payload,)
 ### 画像を送る
 
 画像を送るときは，`requests.post`にfilesも渡します。
-なお，メッセージも一緒でないと送れないので注意が必要です。
+なお，空文字でないメッセージと一緒でないと送れません。
+このとき，エラーは出ないので注意が必要です。
 
 ```python
 message = 'Write Your Message'
@@ -124,7 +126,7 @@ r = requests.post(url, headers=headers, params=payload, files=files,)
 
 スタンプを送るときは，`payload`に`stickerPackageId`と`stickerId`を追加します。
 これらのIDは[ここ](https://devdocs.line.me/files/sticker_list.pdf)から探してきて指定します。
-画像と同様，メッセージも一緒じゃないと送れません。
+こちらも画像と同様，空文字でないメッセージと一緒じゃないと送れず，送れなかったときにはエラーも出ません。
 また，存在しないIDを指定した場合はメッセージも送られないので，注意が必要です。
 
 ```python
