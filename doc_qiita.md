@@ -23,8 +23,9 @@ LINEのグループや自分自身にメッセージ・画像・スタンプを�
 
 ※こちらからのメッセージには反応できない
 
+<div align="center">
 <img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/imprement_example.png" width=50%>
-
+</div>
 
 
 ## LINE Notifyについて
@@ -69,26 +70,36 @@ LINEのグループや自分自身にメッセージ・画像・スタンプを�
 2. 右上からログイン
 3. ログインと同じところをクリックし，マイページへ
 
+<div align="center">
 <img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_login.PNG" width=80%>
+</div>
 
 
 #### 2. トークンの発行
 
 1. ページ下部の「トークンを発行」をクリック
 
+<div align="center">
 <img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_create_token.PNG" width=50%>
+</div>
 
 2. トークン名を指定し，グループを選択して発行
 
+<div align="center">
 <img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_create_token_2.png" width=50%>
+</div>
 
 3. 発行されたトークンをコピーしてどこかに保存
 
+<div align="center">
 <img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_token.png" width=50%>
+</div>
 
 4. ページ上部でちゃんと連携されているか確認
 
+<div align="center">
 <img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_service.png" width=80%>
+</div>
 
 
 連携を解除したいときは「解除」をクリックすればOKです。
