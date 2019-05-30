@@ -93,7 +93,7 @@ LINEのグループや自分自身にメッセージ・画像・スタンプを�
 3. 発行されたトークンをコピーしてどこかに保存
 
 <div align="center">
-</kbd><img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_token.png" width=80%/></kbd>
+</kbd><img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_token.png" width=50%/></kbd>
 </div>
 
 4. ページ上部でちゃんと連携されているか確認
