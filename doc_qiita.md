@@ -24,7 +24,7 @@ LINEのグループや自分自身にメッセージ・画像・スタンプを�
 ※こちらからのメッセージには反応できない
 
 <div align="center">
-<kbd><img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/imprement_example.png"/></kbd>
+<kbd><img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/imprement_example.png" width=50%/></kbd>
 </div>
 
 
@@ -72,7 +72,7 @@ LINEのグループや自分自身にメッセージ・画像・スタンプを�
 3. ログインと同じところをクリックし，マイページへ
 
 <div align="center">
-<kbd><img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_login.PNG"/></kbd>
+<kbd><img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_login.PNG" width=80%/></kbd>
 </div>
 
 
@@ -81,25 +81,25 @@ LINEのグループや自分自身にメッセージ・画像・スタンプを�
 1. ページ下部の「トークンを発行」をクリック
 
 <div align="center">
-</kbd><img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_create_token.PNG"/></kbd>
+</kbd><img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_create_token.PNG" width=80%/></kbd>
 </div>
 
 2. トークン名を指定し，グループを選択して発行
 
 <div align="center">
-<kbd><img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_create_token_2.png"/></kbd>
+<kbd><img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_create_token_2.png" width=80%/></kbd>
 </div>
 
 3. 発行されたトークンをコピーしてどこかに保存
 
 <div align="center">
-</kbd><img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_token.png"/></kbd>
+</kbd><img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_token.png" width=80%/></kbd>
 </div>
 
 4. ページ上部でちゃんと連携されているか確認
 
 <div align="center">
-<kbd><img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_service.png"/></kbd>
+<kbd><img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_service.png" width=80%/></kbd>
 </div>
 
 
