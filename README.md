@@ -19,9 +19,9 @@ This module can be used via console like:
 
 ```console
 python line_notify_bot.py\
-    -a path/to/access_token\
-    -m <messsage>\
-    -i path/to/image\
+    <path/to/access_token>\
+    <messsage>\
+    -i <path/to/image>\
     -sp <sticker package ID>\
     -s <sticker ID>
 ```
