@@ -26,8 +26,9 @@ python line_notify_bot.py\
     -s <sticker ID>
 ```
 
+The fist argument is a path to a file which includes access token only.
 Access token and message are necessary, and the others are optional.
-But if you want to send a sticker, both sticker package ID and sticker ID are needed.
+If you want to send a sticker, both sticker package ID and sticker ID are needed.
 
 Or this can be used in your cord like:
 
@@ -43,6 +44,8 @@ bot.send(
     sticker_id=10,
     )
 ```
+
+These usages are also written in test/test.ipynb.
 
 
 
