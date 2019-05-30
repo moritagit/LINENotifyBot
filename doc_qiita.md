@@ -63,13 +63,33 @@ LINEのグループや自分自身にメッセージ・画像・スタンプを�
 
 次に，アクセストークンを発行します。
 
+#### 1. マイページにアクセス
+
 1. [LINE Notify公式](https://notify-bot.line.me/ja/)にアクセス
-1. 右上からログイン
-1. ログインと同じところをクリックし，マイページへ
+2. 右上からログイン
+3. ログインと同じところをクリックし，マイページへ
+
+<img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_login.png" width=80%>
+
+
+#### 2. トークンの発行
+
 1. ページ下部の「トークンを発行」をクリック
-1. トークン名を指定し，グループを選択して発行
-1. 発行されたトークンをコピーしてどこかに保存
-1. 解除したいときは「解除」をクリック
+
+<img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_create_token.png" width=50%>
+
+2. トークン名を指定し，グループを選択して発行
+
+<img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_create_token_2.png" width=50%>
+
+3. 発行されたトークンをコピーしてどこかに保存
+
+<img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/notify_token.png" width=50%>
+
+
+連携を解除したいときは「解除」をクリックすればOKです。
+
+トークンを保存し忘れたときなどは，一旦解除してもう一度発行すればOKです。
 
 
 
@@ -189,6 +209,7 @@ bot.send(
 ```
 
 こちらはGitHubに公開しているので，使えればOKという方はcloneして頂ければすぐ使えます。
+test/test.ipynbにこれらの実行例をまとめてあるので，そちらを見て頂いた方がわかりやすいかもしれません。
 
 ```console
 git clone https://github.com/moritagit/LINENotifyBot.git
