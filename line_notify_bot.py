@@ -24,16 +24,14 @@ def main():
         add_help=True,
         )
     parser.add_argument(
-        '-a', '--accesstoken',
+        'accesstoken',
         help='path to a file in which an access token is written',
         action='store',
-        required=True,
         )
     parser.add_argument(
-        '-m', '--message',
+        'message',
         help='message to be sent',
         action='store',
-        required=True,
         )
     parser.add_argument(
         '-i', '--image',
