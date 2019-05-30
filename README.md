@@ -4,7 +4,10 @@
 A bot that can send messages, images, or stickers to a LINE group via LINE Notify.
 This bot can't accept messages, i.e., is not interactive.
 
+Japanese article: [PythonでLINEにメッセージを送る](https://qiita.com/moriita/items/5b199ac6b14ceaa4f7c9)
+
 <img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/imprement_example.png" width=50%>
+
 
 
 ## Requirements
