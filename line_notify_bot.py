@@ -5,9 +5,8 @@
 
 Send messages, images, or stickers to a LINE group via LINE Notify.
 This bot can't accept messages, i.e., is not interactive.
-
-* [LINE Notify URL](https://notify-bot.line.me/ja/)
-* [Sticker ID List](https://devdocs.line.me/files/sticker_list.pdf)
+Access token can be obtrained from: https://notify-bot.line.me/ja/
+Sticker and its package IDs can be chosen from: https://devdocs.line.me/files/sticker_list.pdf
 """
 
 
@@ -83,6 +82,7 @@ def main():
 
 class LINENotifyBot:
     """Sends message, image, and sticker to a LINE group.
+    Access token can be obtrained from: https://notify-bot.line.me/ja/
 
     Args:
         access_token (str):
@@ -98,6 +98,7 @@ class LINENotifyBot:
 
     def send(self, message, image=None, sticker_package_id=None, sticker_id=None):
         """Sends message, image, and sticker to a LINE group designated by access token.
+        Sticker and its package IDs can be chosen from: https://devdocs.line.me/files/sticker_list.pdf
 
         Args:
             message (str): Sent message. Maximum length is 1000.
