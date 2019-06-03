@@ -19,9 +19,9 @@
 
 ## できること
 
-LINEのグループや自分自身にメッセージ・画像・スタンプを送る
+LINEのグループや自分自身にメッセージ・画像・スタンプを送ります
 
-※こちらからのメッセージには反応できない
+※こちらからのメッセージには反応できません
 
 <div align="center">
 <kbd><img src="https://github.com/moritagit/LINENotifyBot/blob/doc/figures/imprement_example.png" width=50%/></kbd>
@@ -147,7 +147,7 @@ r = requests.post(url, headers=headers, params=payload,)
 
 画像を送るときは，`requests.post`にfilesも渡します。
 なお，空文字でないメッセージと一緒でないと送れません。
-このとき，エラーは出ないので注意が必要です。
+空文字と一緒に送ろうとすると，エラーは出さずに何も送らないという挙動をするので注意が必要です。
 
 ```python
 message = 'Write Your Message'
@@ -162,7 +162,7 @@ r = requests.post(url, headers=headers, params=payload, files=files,)
 
 スタンプを送るときは，`payload`に`stickerPackageId`と`stickerId`を追加します。
 これらのIDは[ここ](https://devdocs.line.me/files/sticker_list.pdf)から探してきて指定します。
-こちらも画像と同様，空文字でないメッセージと一緒じゃないと送れず，送れなかったときにはエラーも出ません。
+こちらも画像と同様，空文字でないメッセージと一緒じゃないと送れず，空文字と一緒に送ろうとしてもエラーは出ません。
 また，存在しないIDを指定した場合はメッセージも送られないので，注意が必要です。
 
 ```python
