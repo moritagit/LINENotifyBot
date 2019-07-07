@@ -120,6 +120,9 @@ class LINENotifyBot:
                 If set to unregistered integer,
                 even message can't be sent.
                 Defaults to None.
+
+        Returns:
+            response (requests.models.Response): Response of the requests.post.
         """
         if not message:
             raise ValueError('message must not be None.')
