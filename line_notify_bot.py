@@ -10,6 +10,7 @@ Sticker and its package IDs can be chosen from: https://devdocs.line.me/files/st
 """
 
 
+from pathlib import Path
 import requests
 
 
@@ -119,21 +120,81 @@ class LINENotifyBot:
                 If set to unregistered integer,
                 even message can't be sent.
                 Defaults to None.
+
+        Returns:
+            response (requests.models.Response): Response of the requests.post.
         """
+        if not message:
+            raise ValueError('message must not be None.')
+        if not isinstance(message, str):
+            raise TypeError(f'message must be str. But input message type was: {type(message)}')
+
+        if sticker_package_id:
+            if isinstance(sticker_package_id, int):
+                pass
+            elif isinstance(sticker_package_id, str):
+                if sticker_package_id.isdecimal():
+                    sticker_package_id = int(sticker_package_id)
+                else:
+                    raise ValueError(f'sticker_package_id can be an arabic decimal str, but the input was: {sticker_package_id}.')
+            else:
+                raise TypeError('sticker_package_id must be int or arabic decimal str, but the input type was: {type(sticker_package_id)}')
+
+            if not sticker_id:
+                raise ValueError('sticker_package_id is input, but sticker_id is not input.')
+
+        if sticker_id:
+            if isinstance(sticker_id, int):
+                pass
+            elif isinstance(sticker_id, str):
+                if sticker_id.isdecimal():
+                    sticker_id = int(sticker_id)
+                else:
+                    raise ValueError(f'sticker_id can be an arabic decimal str, but the input was: {sticker_id}.')
+            else:
+                raise TypeError('sticker_id must be int or arabic decimal str, but the input type was: {type(sticker_id)}')
+
+            if not sticker_package_id:
+                raise ValueError('sticker_id is input, but sticker_package_id is not input.')
+
+
         payload = {
             'message': message,
             'stickerPackageId': sticker_package_id,
             'stickerId': sticker_id,
             }
         files = {}
-        if image != None:
-            files = {'imageFile': open(str(image), 'rb')}
-        r = requests.post(
+
+        if image:
+            if isinstance(image, str):
+                image_path = Path(image)
+            elif isinstance(image, Path):
+                image_path = image
+            else:
+                raise TypeError(f'image must be str or pathlib.Path. But input image type was: {type(image)}')
+
+            if not image_path.exists():
+                raise ValueError(f'image file does not exist: {image_path}')
+
+            extention = image_path.suffix
+            if not extention:
+                raise ValueError('image must not be a directory. But the input was: {image_path}')
+            elif extention not in ['.png', '.jpg']:
+                raise ValueError(f'image must have .png or .jpg as its extention. But {extention} file was input.')
+
+            files = {'imageFile': open(str(image_path), 'rb')}
+
+        response = requests.post(
             LINENotifyBot.API_URL,
             headers=self.__headers,
             data=payload,
             files=files,
             )
+
+        if not response.ok:
+            raise Exception('The message, image, and sticker can not be sent for some reason. Maybe you input wrong sticker (or sticker package) ID.')
+
+        return response
 
 
 if __name__ == '__main__':
