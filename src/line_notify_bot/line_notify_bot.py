@@ -7,7 +7,7 @@ Send messages, images, or stickers to a LINE group via LINE Notify.
 This bot can't accept messages, i.e., is not interactive.
 Access token can be obtrained from: https://notify-bot.line.me/ja/
 Sticker and its package IDs can be chosen from:
-https://devdocs.line.me/files/sticker_list.pdf
+https://developers.line.biz/ja/docs/messaging-api/sticker-list/
 """
 
 
@@ -45,7 +45,7 @@ class LINENotifyBot(object):
         """
         Sends message, image, and sticker to a LINE group designated by access token.
         Sticker and its package IDs can be chosen from:
-        https://devdocs.line.me/files/sticker_list.pdf
+        https://developers.line.biz/ja/docs/messaging-api/sticker-list/
 
         Parameters:
             message: Sent message. Maximum length is 1000.
