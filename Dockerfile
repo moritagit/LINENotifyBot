@@ -3,7 +3,7 @@ FROM python:3.8-slim AS builder
 LABEL org.opencontainers.image.source https://github.com/moritagit/LINENotifyBot
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV WORKDIR /app/
+ENV WORKDIR /workspaces/LINENotifyBot
 
 WORKDIR /opt
 
