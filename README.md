@@ -20,7 +20,7 @@ This module can be used via console like:
 ```console
 python src/line_notify_bot \
     <path/to/access_token> \
-    <messsage> \
+    <message> \
     -i <path/to/image/file> \
     -sp <sticker package ID> \
     -s <sticker ID>
@@ -55,7 +55,7 @@ To install, simply clone from GitHub.
 git clone https://github.com/moritagit/LINENotifyBot.git
 ```
 
-## Licence
+## License
 
 This software is released under the MIT License, see LICENSE.
 
