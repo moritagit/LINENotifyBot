@@ -1,14 +1,15 @@
 import argparse
+from pathlib import Path
 
-from line_notify_bot.line_notify_bot import LINENotifyBot
+from line_notify_bot import LINENotifyBot
 
 
 def main():
     parser = argparse.ArgumentParser(
         prog='line_notify_bot',
         usage=(
-            'python src/line_notify_bot_line_notify_bot.py -a path/to/access_token '
-            '-m <messsage> -i path/to/image -sp <sticker package ID> -s <sticker ID>'
+            'python src/line_notify_bot path/to/access_token <messsage> '
+            '-i path/to/image -sp <sticker package ID> -s <sticker ID>'
         ),
         description=(
             'Send messages, images, or stickers to a LINE group via LINE Notify.'
@@ -37,7 +38,10 @@ def main():
     parser.add_argument(
         '-sp',
         '--stickerpackage',
-        help='sticker package ID',
+        help=(
+            'sticker package ID '
+            '(see https://developers.line.biz/ja/docs/messaging-api/sticker-list/)'
+        ),
         type=int,
         action='store',
         required=False,
@@ -46,7 +50,10 @@ def main():
     parser.add_argument(
         '-s',
         '--sticker',
-        help='sticker ID',
+        help=(
+            'sticker ID '
+            '(see https://developers.line.biz/ja/docs/messaging-api/sticker-list/)'
+        ),
         type=int,
         action='store',
         required=False,
@@ -59,15 +66,7 @@ def main():
     sticker_package_id = args.stickerpackage
     sticker_id = args.sticker
 
-    """
-    message = 'test'
-    image_path = 'test.png'
-    sticker_package_id = 1
-    sticker_id = 13
-    """
-
-    with open(access_token_path, 'r') as fin:
-        access_token = fin.read().strip()
+    access_token = Path(access_token_path).read_text().strip()
     bot = LINENotifyBot(access_token=access_token)
     bot.send(
         message,
