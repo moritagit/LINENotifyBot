@@ -1,0 +1,10 @@
+version: "3"
+services:
+  summary:
+    build:
+      context: .
+      dockerfile: "Dockerfile"
+    volumes:
+      - type: bind
+        source: .
+        target: /app
