@@ -1,6 +1,7 @@
 # directory
 
 dist/*
+misc/*
 !*.gitkeep
 
 
