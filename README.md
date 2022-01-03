@@ -59,6 +59,25 @@ bot.send(
 
 These usages are also written in [`test/test.ipynb`](https://github.com/moritagit/LINENotifyBot/blob/main/tests/test.ipynb).
 
+### Error notification
+
+`notify_error` method is a decorator to send the error message which the decorated function raised.
+
+```python
+@bot.notify_error()
+def test(n):
+    if n < 10:
+        return n
+    else:
+        raise ValueError(f'`n` must be lesser than 10, but {n} was input.')
+
+test(5)
+# 5 (success)
+
+test(12)
+# error message will be sent
+```
+
 ## License
 
 This software is released under the MIT License, see LICENSE.
