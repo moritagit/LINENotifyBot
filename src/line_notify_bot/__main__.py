@@ -1,14 +1,14 @@
 import argparse
-from pathlib import Path
 
 from line_notify_bot import LINENotifyBot
+from line_notify_bot.env import LINE_NOTIFY_ACCESS_TOKEN
 
 
 def main():
     parser = argparse.ArgumentParser(
         prog='line_notify_bot',
         usage=(
-            'python src/line_notify_bot path/to/access_token <messsage> '
+            'python src/line_notify_bot <messsage> '
             '-i path/to/image -sp <sticker package ID> -s <sticker ID>'
         ),
         description=(
@@ -16,11 +16,6 @@ def main():
         ),
         epilog='end',
         add_help=True,
-    )
-    parser.add_argument(
-        'accesstoken',
-        help='path to a file in which an access token is written',
-        action='store',
     )
     parser.add_argument(
         'message',
@@ -60,14 +55,12 @@ def main():
         default=None,
     )
     args = parser.parse_args()
-    access_token_path = args.accesstoken
     message = args.message
     image_path = args.image
     sticker_package_id = args.stickerpackage
     sticker_id = args.sticker
 
-    access_token = Path(access_token_path).read_text().strip()
-    bot = LINENotifyBot(access_token=access_token)
+    bot = LINENotifyBot(access_token=LINE_NOTIFY_ACCESS_TOKEN)
     bot.send(
         message,
         image=image_path,
