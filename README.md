@@ -23,6 +23,8 @@ git clone https://github.com/moritagit/LINENotifyBot.git
 
 ## Usage
 
+### Console
+
 This module can be used via console like:
 
 ```console
@@ -37,6 +39,8 @@ python src/line_notify_bot \
 The fist argument is a path to a file which includes access token only.
 Access token and message are necessary, and the others are optional.
 If you want to send a sticker, both sticker package ID and sticker ID are needed.
+
+### In Python
 
 Or this can be used in your code like:
 
@@ -53,7 +57,26 @@ bot.send(
 )
 ```
 
-These usages are also written in `test/test.ipynb.`
+These usages are also written in [`test/test.ipynb`](https://github.com/moritagit/LINENotifyBot/blob/main/tests/test.ipynb).
+
+### Error notification
+
+`notify_error` method is a decorator to send the error message which the decorated function raised.
+
+```python
+@bot.notify_error()
+def test(n):
+    if n < 10:
+        return n
+    else:
+        raise ValueError(f'`n` must be lesser than 10, but {n} was input.')
+
+test(5)
+# 5 (success)
+
+test(12)
+# error message will be sent
+```
 
 ## License
 
