@@ -11,8 +11,9 @@ https://developers.line.biz/ja/docs/messaging-api/sticker-list/
 """
 
 
+import traceback
 from pathlib import Path
-from typing import Optional, Union
+from typing import Callable, Optional, Union
 
 import requests
 
@@ -119,3 +120,53 @@ class LINENotifyBot(object):
             )
 
         return response
+
+    def notify_error(self, success_message: Optional[str] = None) -> Callable:
+        """
+        A decorator for a function to notify errors occurred when executing
+        the function.
+
+        Parameters:
+            success_message: A message sent when the function was successfully executed.
+                If set to `None` (default), default message will be sent.
+                If set to empty string (''), no message will be sent.
+
+        Example:
+            ```
+            >>> @bot.notify_error
+            ... def test(n):
+            ...     if n < 10:
+            ...         return n
+            ...     else:
+            ...         raise ValueError('`n` must be lesser than 10.')
+            >>>
+            >>> test(2)
+            # 'no error occurred when executing `test`' will be sent.
+            2
+            >>> test(12)
+            # '`n` must be lesser than 10.' will be sent.
+            ```
+        """
+
+        def decorator(func: Callable) -> Callable:
+            nonlocal success_message
+
+            if success_message is None:
+                success_message = f'no error occurred when executing `{func.__name__}`'
+
+            def _wrapper(*args, **kwargs):
+                try:
+                    r = func(*args, **kwargs)
+                except BaseException as e:
+                    t = traceback.format_exc()
+                    message = f'error occured when executing `{func.__name__}`\n\n{t}'
+                    self.send(message)
+                    raise e
+                else:
+                    if success_message:
+                        self.send(success_message)
+                return r
+
+            return _wrapper
+
+        return decorator
