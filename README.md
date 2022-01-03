@@ -13,6 +13,14 @@ Japanese article: [Python で LINE にメッセージを送る](https://qiita.co
 - Python Packages
   - `requests`
 
+## Installation
+
+To install, simply clone from GitHub.
+
+```console
+git clone https://github.com/moritagit/LINENotifyBot.git
+```
+
 ## Usage
 
 This module can be used via console like:
@@ -42,18 +50,10 @@ bot.send(
     image='path/to/image (png or jpg)',
     sticker_package_id=1,
     sticker_id=10,
-    )
+)
 ```
 
 These usages are also written in `test/test.ipynb.`
-
-## Install
-
-To install, simply clone from GitHub.
-
-```console
-git clone https://github.com/moritagit/LINENotifyBot.git
-```
 
 ## License
 
