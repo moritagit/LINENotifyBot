@@ -159,7 +159,8 @@ class LINENotifyBot(object):
                     r = func(*args, **kwargs)
                 except BaseException as e:
                     t = traceback.format_exc()
-                    message = f'error occured when executing `{func.__name__}`\n\n{t}'
+                    message = f'error occured when executing `{func.__name__}`\n\n'
+                    message += f'```\n{t}```'
                     self.send(message)
                     raise e
                 else:
