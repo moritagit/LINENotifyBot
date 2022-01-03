@@ -23,6 +23,8 @@ git clone https://github.com/moritagit/LINENotifyBot.git
 
 ## Usage
 
+### Console
+
 This module can be used via console like:
 
 ```console
@@ -37,6 +39,8 @@ python src/line_notify_bot \
 The fist argument is a path to a file which includes access token only.
 Access token and message are necessary, and the others are optional.
 If you want to send a sticker, both sticker package ID and sticker ID are needed.
+
+### In Python
 
 Or this can be used in your code like:
 
@@ -53,7 +57,7 @@ bot.send(
 )
 ```
 
-These usages are also written in `test/test.ipynb.`
+These usages are also written in [`test/test.ipynb`](https://github.com/moritagit/LINENotifyBot/blob/main/tests/test.ipynb).
 
 ## License
 
